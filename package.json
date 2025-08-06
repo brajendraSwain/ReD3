@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
     "d3": "^7.9.0",
@@ -29,6 +30,7 @@
     "@storybook/addon-vitest": "^9.1.0",
     "@storybook/cli": "^9.1.0",
     "@storybook/react-vite": "^9.1.0",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/d3": "^7.4.3",
