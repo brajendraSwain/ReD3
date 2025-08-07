@@ -121,7 +121,7 @@ const BasicChart: React.FC<BasicChartProps> = ({
     //   .call(d3.axisBottom(xScale));
 
     // Add y-axis
-    chart.append("g").call(d3.axisLeft(yScale));
+    // chart.append("g").call(d3.axisLeft(yScale));
   }, [data, width, height]);
 
   return (
@@ -140,7 +140,12 @@ const BasicChart: React.FC<BasicChartProps> = ({
           scale={xScale}
           orientation="bottom"
           transform={`translate(${margin.left},${innerHeight + margin.top})`}
-          label="Linear Scale"
+          animationDuration={0}
+        ></Axis>
+        <Axis
+          scale={yScale}
+          orientation="left"
+          transform={`translate(${margin.left},${margin.top})`}
           animationDuration={0}
         ></Axis>
       </svg>
