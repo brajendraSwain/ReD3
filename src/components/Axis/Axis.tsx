@@ -18,6 +18,7 @@ export type AxisOrientation = "top" | "bottom" | "left" | "right";
 export interface AxisProps {
   /** D3 scale function */
   scale: ScaleType;
+  parentScale?: ScaleType;
   /** Axis orientation */
   orientation: AxisOrientation;
   /** Number of ticks (optional) */
@@ -173,8 +174,9 @@ function renderAxisLabel(
   }
 }
 
-const Axis: React.FC<AxisProps> = ({
+export const Axis: React.FC<AxisProps> = ({
   scale,
+  parentScale,
   orientation,
   tickCount,
   tickValues,
@@ -225,6 +227,14 @@ const Axis: React.FC<AxisProps> = ({
       axisGroup.transition().duration(animationDuration).call(axisGenerator);
     } else {
       axisGroup.call(axisGenerator);
+    }
+
+    if (parentScale) {
+      const parentAxisGenerator = getAxisGenerator(orientation, parentScale);
+      axisGroup
+        .append("g")
+        .attr("transform", `translate(0,${20})`)
+        .call(parentAxisGenerator);
     }
 
     // Grid lines

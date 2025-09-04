@@ -22,4 +22,8 @@ export const AxisContainer = styled.g`
   &.axis-y .tick text {
     text-anchor: end;
   }
+
+  g.axis-label {
+    fill: currentColor;
+  }
 `;
